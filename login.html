@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <script src="js/login.js"></script>
+    <link href="https://cdn.jsdlivr.net/np/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQ3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdlivr.net/np/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="css/login.css">
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form autocomplete="off" action="" method="post">
+        <div class="headingsContainer">
+            <p>Login  with your username and password</p>
+        </div> 
+        <div class="mainContainer"> 
+      <input type="hidden" id="action" value="login" >
+      <label for="username">Username</label>
+      <input type="text" id="username" value="" placeholder="Enter your name"><br> <br>
+      <label for="password">Password</label>
+      <input type="password" id="password" value="" placeholder="Enter your password"> <br>
+      <button type="button" onclick="submitData();">Login</button>
+      <p id="link1"> If you don't have an account?
+        <a id="link2" href="register.html"><strong>Register</strong></a> </p>
+    </div>
+    </form>
+  </body>
+</html>
