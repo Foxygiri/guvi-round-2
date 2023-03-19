@@ -10,22 +10,27 @@
     </script>
     <link rel="stylesheet" href="css/login.css">
   </head>
-  <body>
-    <h1>Login</h1>
-    <form autocomplete="off" action="" method="post">
-        <div class="headingsContainer">
-            <p>Login  with your username and password</p>
-        </div> 
-        <div class="mainContainer"> 
-      <input type="hidden" id="action" value="login" >
-      <label for="username">Username</label>
-      <input type="text" id="username" value="" placeholder="Enter your name"><br> <br>
-      <label for="password">Password</label>
-      <input type="password" id="password" value="" placeholder="Enter your password"> <br>
-      <button type="button" onclick="submitData();">Login</button>
-      <p id="link1"> If you don't have an account?
-        <a id="link2" href="register.html"><strong>Register</strong></a> </p>
-    </div>
-    </form>
-  </body>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form autocomplete="off" action="" method="post">
+                    <h2>Login</h2>
+                    <input type="hidden" id="action" value="login" >
+                    <div class="inputbox">
+                        <input type="text" id="username" value="" placeholder="Username" required>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" id="password" value="" placeholder="Password" required>
+                    </div>
+
+                    <button type="button" onclick="submitData();">Log in</button>
+                    <div class="register">
+                        <p id="link1">Don't have a account <a id="link2" href="register.html">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
