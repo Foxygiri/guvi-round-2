@@ -2,11 +2,8 @@
 function submitData(){
     $(document).ready(function(){
       var data = {
-        name: $("#name").val(),
         username: $("#username").val(),
-        Email: $("#Email").val(),
         password: $("#password").val(),
-        action: $("#action").val(),
       };
 
       $.ajax({
