@@ -30,7 +30,7 @@ function register(){
     exit;
   }
 
-  $query = "INSERT INTO tb_user VALUES('$name', '$username','$Email', '$password')";
+  $query = "INSERT INTO tb_user VALUES('$name', '$username','$password','$Email')";
   mysqli_query($conn, $query);
   echo "Registration Successful";
 }
