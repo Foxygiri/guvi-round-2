@@ -1,13 +1,15 @@
 
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "loginregister");
+$conn = mysqli_connect("localhost", "root", "", "logindetails");
 
 if(isset($_POST["action"])){
   if($_POST["action"] == "register"){
-    register();
+   register();
   }
 }
+
+
 function register(){
   global $conn;
 
@@ -28,8 +30,8 @@ function register(){
     exit;
   }
 
-  $query = "INSERT INTO tb_user VALUES('', '$name', '$username','$Email', '$password')";
+  $query = "INSERT INTO tb_user VALUES('$name', '$username','$Email', '$password')";
   mysqli_query($conn, $query);
   echo "Registration Successful";
 }
-?>
+?> 
