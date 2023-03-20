@@ -10,7 +10,7 @@ body {
 }
 
 .bg-container {
-  background-image: url("https://cdn.discordapp.com/attachments/1046665588711366693/1086905082920058922/background.jpg");
+  background-image: url("/guvi-round-2/assets/background.jpg");
   background-size: cover;
   height: 100vh;
   display: flex;
