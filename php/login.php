@@ -12,6 +12,10 @@ $conn = mysqli_connect("localhost", "root", "", "logindetails");
 //   }
 // }
 login();
+
+$result = array("status"=>"", "message"=>"", "data"=>"");
+
+// $result["status"]
 function login(){
   global $conn;
 
@@ -25,17 +29,28 @@ function login(){
     $row = mysqli_fetch_assoc($user);
    // print_r($row);
     if($password == $row['password']){
-      echo "Login Successful";
+      $result["status"] = "success";
+      $result["message"] = "Login Successfull";
+      $result["data"] = $row;
+      echo json_encode($result);
+
+
+      // echo json_encode($user);
       $_SESSION["login"] = true;
       exit;
     }
     else{
-      echo "Wrong Password";
+      $result["status"] = "error";
+      $result["message"] = "Wrong password";
+      echo json_encode($result);
       exit;
     }
   }
   else{
-    echo "User Not Registered";
+    // echo "User Not Registered";
+    $result["status"] = "error";
+    $result["message"] = "User not registered";
+    echo json_encode($result);
     exit;
   }
 }
