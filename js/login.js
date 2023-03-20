@@ -17,14 +17,20 @@ function submitData() {
       data: data,
       success: function (response) {
         // alert(response.status);
-        const parsed_response = JSON.parse(response);
-        if (parsed_response.status == "success") {
-          localStorage.setItem("user", JSON.stringify(parsed_response.data));
-          alert(parsed_response.message);
-          location.replace("profile.html");
-        } else {
-          alert(parsed_response.message);
+        try{
+          const parsed_response = JSON.parse(response);
+          if (parsed_response.status == "success") {
+            localStorage.setItem("user", JSON.stringify(parsed_response.data));
+            alert(parsed_response.message);
+            location.replace("profile.html");
+          } else {
+            alert(parsed_response.message);
+          }
         }
+        catch(err){
+          alert(err)
+        }
+        
       },
     });
   });

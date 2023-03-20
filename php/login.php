@@ -1,42 +1,39 @@
 <?php
 session_start();
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+
 $conn = mysqli_connect("localhost", "root", "", "logindetails");
-// print_r($conn);
-// exit;
-// echo $_POST["action"];
-// if(isset($_POST["action"])){
-//    if($_POST["action"] == "login"){
-//     // return "sas"
-//     echo "login";
-//     login();
-//   }
-// }
+
 login();
 
 $result = array("status"=>"", "message"=>"", "data"=>"");
 
-// $result["status"]
 function login(){
-  global $conn;
+  global $conn, $redis;
 
   $username = $_POST["username"];
   $password = $_POST["password"];
 
-  $user = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
-  //print_r($user);
-  if(mysqli_num_rows($user) > 0){
+  $stmt = mysqli_prepare($conn, "SELECT * FROM tb_user WHERE username = ?");
+  mysqli_stmt_bind_param($stmt, "s", $username);
+  mysqli_stmt_execute($stmt);
+  $user = mysqli_stmt_get_result($stmt);
 
+  if(mysqli_num_rows($user) > 0){
     $row = mysqli_fetch_assoc($user);
-   // print_r($row);
     if($password == $row['password']){
       $result["status"] = "success";
       $result["message"] = "Login Successfull";
       $result["data"] = $row;
       echo json_encode($result);
 
-
-      // echo json_encode($user);
       $_SESSION["login"] = true;
+
+      $sessionId = session_id();
+      $redis->set($sessionId, json_encode($_SESSION));
+      $redis->expire($sessionId, 3600);
+
       exit;
     }
     else{
@@ -47,7 +44,7 @@ function login(){
     }
   }
   else{
-    // echo "User Not Registered";
+
     $result["status"] = "error";
     $result["message"] = "User not registered";
     echo json_encode($result);
@@ -55,3 +52,4 @@ function login(){
   }
 }
 ?> 
+

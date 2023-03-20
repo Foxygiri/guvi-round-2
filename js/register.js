@@ -7,9 +7,9 @@ function submitData(e){
         Email: $("#Email").val(),
         action: $("#action").val(),
       };
-      if( data.name===""||data.username === "" || data.password === "" ||data.Email==="" ){
-        return;
-      }
+      // if( data.name===""||data.username === "" || data.password === "" ||data.Email==="" ){
+      //   return;
+      // }
   
       $.ajax({
         url: 'php/register.php',
