@@ -19,7 +19,7 @@ function register(){
   $Email = $_POST["Email"];
 
 
-  if(empty($name) || empty($username) || empty($password)){
+  if(empty($name) || empty($username) || empty($password) || empty($Email)){
     echo "Please Fill Out The Form!";
     exit;
   }

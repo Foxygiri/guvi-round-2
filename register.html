@@ -17,22 +17,22 @@
                 <form autocomplete="off" action="" method="post">
                     <h2>Register</h2>
                     <div class="mainContainer">
-                        <input type="hidden" id="action" value="register">
+                        <input type="hidden" required id="action" value="register">
 
                         <div class="inputbox">
-                            <input type="text" id="name" value="" placeholder="Name" required>
+                            <input type="text" required id="name" value="" placeholder="Name" required>
                         </div>
 
                         <div class="inputbox">
-                            <input type="text" id="username" value="" placeholder="Username" required>
+                            <input type="text" required id="username" value="" placeholder="Username" required>
                         </div>
 
                         <div class="inputbox">
-                            <input type="email" id="Email" value="" placeholder="Email" required>
+                            <input type="email" required id="Email" value="" placeholder="Email" required>
                         </div>
 
                         <div class="inputbox">
-                            <input type="password" id="password" value="" placeholder="Password" required>
+                            <input type="password"  required id="password" value="" placeholder="Password" required>
                         </div>
 
                         <button type="button" onclick="submitData();">Register</button>

@@ -1,4 +1,4 @@
-function submitData(){
+function submitData(e){
     $(document).ready(function(){
       var data = {
         name: $("#name").val(),
@@ -7,19 +7,20 @@ function submitData(){
         Email: $("#Email").val(),
         action: $("#action").val(),
       };
+      if( data.name===""||data.username === "" || data.password === "" ||data.Email==="" ){
+        return;
+      }
   
       $.ajax({
         url: 'php/register.php',
         type: 'post',
         data: data,
         success:function(response){
-          location.replace("login.html");
           alert(response);
           if(response == "Login Successful"){
-            window.location.reload();
+            location.replace("login.html");
           }
         }
       });
     });
   }
-  

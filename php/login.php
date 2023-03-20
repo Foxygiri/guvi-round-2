@@ -1,15 +1,17 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "login");
-
+$conn = mysqli_connect("localhost", "root", "", "logindetails");
 // print_r($conn);
 // exit;
-if(isset($_POST["action"])){
-   if($_POST["action"] == "login"){
-    login();
-  }
-}
-
+// echo $_POST["action"];
+// if(isset($_POST["action"])){
+//    if($_POST["action"] == "login"){
+//     // return "sas"
+//     echo "login";
+//     login();
+//   }
+// }
+login();
 function login(){
   global $conn;
 
@@ -25,7 +27,6 @@ function login(){
     if($password == $row['password']){
       echo "Login Successful";
       $_SESSION["login"] = true;
-      $_SESSION["id"] = $row["id"];
       exit;
     }
     else{

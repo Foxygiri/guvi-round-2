@@ -14,21 +14,21 @@
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form autocomplete="off" action="" method="post">
+                <!-- <form autocomplete="off" onsubmit="submitData();" action="" method="post"> -->
                     <h2>Login</h2>
-                    <input type="hidden" id="action" value="login" >
+                    <input type="hidden" required id="action" value="login" >
                     <div class="inputbox">
-                        <input type="text" id="username" value="" placeholder="Username" required>
+                        <input type="text" id="username" required value="" placeholder="Username" required>
                     </div>
                     <div class="inputbox">
-                        <input type="password" id="password" value="" placeholder="Password" required>
+                        <input type="password" id="password" required value="" placeholder="Password" required>
                     </div>
-
-                    <button type="button" onclick="submitData();">Log in</button>
+                    <div id="error"></div>
+                    <button type="button" onclick="submitData();">Log in now</button>
                     <div class="register">
                         <p id="link1">Don't have a account? <a id="link2" href="register.html">Register</a></p>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
     </section>
